@@ -14,27 +14,22 @@
             <div class="row">
                 <div class="col-lg-6 align-self-center">
                     <div class="caption header-text">
-                        <h6>Welcome to lugx</h6>
-                        <h2>BEST GAMING SITE EVER!</h2>
-                        <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can
-                            download and use this layout for commercial purposes. Please tell your friends about
-                            TemplateMo.</p>
-                        <div class="search-input">
-                            <form id="search" action="#">
-                                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
-                                    onkeypress="handle" />
-                                <button role="button">Search Now</button>
-                            </form>
-                        </div>
+                        <h6>Welcome to Sport Arena</h6>
+                        <h2>BEST BOOKING WEBSITE!</h2>
+                        <p>Chào mừng bạn đến với trang web đặt sân bóng đá! Chúng tôi cung cấp dịch vụ đặt sân bóng đá
+                            trực tuyến nhanh chóng và
+                            dễ dàng. Với đa dạng sân cỏ nhân tạo, sân cỏ tự nhiên, và các tiện ích đi kèm, bạn có thể dễ
+                            dàng tìm và đặt sân phù
+                            hợp cho các trận đấu của mình. Hãy trải nghiệm ngay để đặt sân bóng nhanh chóng, thuận tiện
+                            và tiết kiệm thời gian!
+                        </p>
+                        <p>Hãy chia sẻ website với bạn bè để cùng tham gia các trận bóng thú vị tại các sân bóng chất
+                            lượng cao.</p>
+
+
                     </div>
                 </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <div class="right-image">
-                        <img src="images/banner-image.jpg" alt="">
-                        <span class="price">$22</span>
-                        <span class="offer">-40%</span>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -91,8 +86,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h6>Trending</h6>
-                        <h2>Trending Games</h2>
+                        <h2>Sân hiện còn</h2>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -100,246 +94,56 @@
                         <a href="shop.html">View All</a>
                     </div>
                 </div>
+                @for (item of list_football_fields; track $index) {
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a href="product-details.html"><img src="images/trending-01.jpg" alt=""></a>
-                            <span class="price"><em>$28</em>$20</span>
+                            <a routerLink="/footfield_detail"><img class="image" src="images/{{item.image}}" alt=""></a>
                         </div>
                         <div class="down-content">
-                            <span class="category">Action</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/trending-02.jpg" alt=""></a>
-                            <span class="price">$44</span>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Action</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/trending-03.jpg" alt=""></a>
-                            <span class="price"><em>$64</em>$44</span>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Action</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/trending-04.jpg" alt=""></a>
-                            <span class="price">$32</span>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Action</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section most-played">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h6>TOP GAMES</h6>
-                        <h2>Most Played</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="main-button">
-                        <a href="shop.html">View All</a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-01.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-02.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-03.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-04.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-05.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="item">
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/top-game-06.jpg" alt=""></a>
-                        </div>
-                        <div class="down-content">
-                            <span class="category">Adventure</span>
-                            <h4>Assasin Creed</h4>
-                            <a href="product-details.html">Explore</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section categories">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-heading">
-                        <h6>Categories</h6>
-                        <h2>Top Categories</h2>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/categories-01.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/categories-05.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/categories-03.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/categories-04.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-6 col-xs-12">
-                    <div class="item">
-                        <h4>Action</h4>
-                        <div class="thumb">
-                            <a href="product-details.html"><img src="images/categories-05.jpg" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="shop">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-heading">
-                                    <h6>Our Shop</h6>
-                                    <h2>Go Pre-Order Buy & Get Best <em>Prices</em> For You!</h2>
-                                </div>
-                                <p>Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor incididunt.</p>
-                                <div class="main-button">
-                                    <a href="shop.html">Shop Now</a>
-                                </div>
+                            <span class="category">Trạng thái: <strong [ngClass]="item.status ? 'highlight' : 'normal'">
+                                    @if (item.status) {
+                                    Còn sân
+                                    }@else {
+                                    Hết sân
+                                    }</strong></span>
+                            <h4>{{item.name}}</h4>
+                            <p>{{item.shortDes}}</p>
+                            <div>
+                                <h5 class="custom">{{item.price | currency:'VND':'code'}}/giờ</h5>
+                                <a class="d-block" href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-2 align-self-end">
-                    <div class="subscribe">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="section-heading">
-                                    <h6>NEWSLETTER</h6>
-                                    <h2>Get Up To $100 Off Just Buy <em>Subscribe</em> Newsletter!</h2>
-                                </div>
-                                <div class="search-input">
-                                    <form id="subscribe" action="#">
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Your email...">
-                                        <button type="submit">Subscribe Now</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                }
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="pagination">
+                        @if (is_Active!= 1) {
+                        <li><a> &lt; </a></li>
+                        }
+
+                        @for (item of totalPage; track $index) {
+                        <li (click)="isActive($index+1)"><a
+                                [ngClass]="is_Active == $index+1 ? 'is_active' : ''">{{$index+1}}</a>
+                        </li>
+                        }
+                        @if (is_Active != totalPage.length ) {
+                        <li><a> &gt; </a></li>
+                        }
+
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
     <!-- Footer -->
 
 

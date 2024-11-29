@@ -1,0 +1,32 @@
+.highlight {
+    font-size: 1.5em;
+    /* Làm chữ lớn hơn */
+    font-weight: bold;
+    /* Làm chữ đậm */
+    color: #32CD32;
+    /* Màu chữ */
+}
+
+.normal {
+    font-size: 1.5em;
+    /* Làm chữ lớn hơn */
+    font-weight: bold;
+    /* Làm chữ đậm */
+    color: red;
+    /* Màu chữ */
+}
+
+.image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.down-content {
+    position: relative;
+    height: 246px;
+}
+
+.custom {
+    position: absolute;
+    bottom: 25px;
+}
