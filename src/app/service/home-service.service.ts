@@ -11,9 +11,15 @@ export class HomeServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getAllFootField(page: number): any {
+  getAllFootField(filter: any): any {
 
-    const params = new HttpParams().set('page', page.toString())
+    let params = new HttpParams();
+    Object.keys(filter).forEach(key => {
+      if (filter[key] !== null && filter[key] !== undefined) {
+        params = params.set(key, filter[key]); // Thêm từng cặp key-value vào HttpParams
+      }
+    });
+
     return this.http.get(this.url, { params });
   }
 

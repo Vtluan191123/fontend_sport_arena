@@ -30,3 +30,8 @@
     position: absolute;
     bottom: 25px;
 }
+
+button,
+a {
+    cursor: pointer !important;
+}

@@ -1,0 +1,26 @@
+a {
+    cursor: pointer;
+}
+
+.modal-backdrop {
+    z-index: 1040;
+}
+
+.modal {
+    z-index: 1050;
+}
+
+.cart {
+    position: relative;
+}
+
+.quantity {
+    background: #fff;
+    padding: 5px;
+    color: rgb(23, 231, 23);
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    right: 120px;
+    line-height: 10px;
+}

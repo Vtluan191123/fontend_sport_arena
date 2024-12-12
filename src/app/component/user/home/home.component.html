@@ -1,13 +1,5 @@
 <div>
-
-
-
     <!-- Header -->
-
-
-
-
-    <!-- ***** Header Area End ***** -->
 
     <div class="main-banner">
         <div class="container">
@@ -91,14 +83,15 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="main-button">
-                        <a href="shop.html">View All</a>
+                        <a routerLink="/shop">View All</a>
                     </div>
                 </div>
                 @for (item of list_football_fields; track $index) {
                 <div class="col-lg-3 col-md-6">
                     <div class="item">
                         <div class="thumb">
-                            <a routerLink="/footfield_detail"><img class="image" src="images/{{item.image}}" alt=""></a>
+                            <a (click)="navigateFootballDetail(item.id)"><img class="image" src="images/{{item.image}}"
+                                    alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Trạng thái: <strong [ngClass]="item.status ? 'highlight' : 'normal'">
@@ -111,7 +104,8 @@
                             <p>{{item.shortDes}}</p>
                             <div>
                                 <h5 class="custom">{{item.price | currency:'VND':'code'}}/giờ</h5>
-                                <a class="d-block" href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+                                <a class="d-block" (click)="navigateFootballDetail(item.id)"><i
+                                        class="fa fa-shopping-bag"></i></a>
                             </div>
 
                         </div>
@@ -123,7 +117,7 @@
                 <div class="col-lg-12">
                     <ul class="pagination">
                         @if (is_Active!= 1) {
-                        <li><a> &lt; </a></li>
+                        <li><a (click)="Back()"> &lt; </a></li>
                         }
 
                         @for (item of totalPage; track $index) {
@@ -132,7 +126,7 @@
                         </li>
                         }
                         @if (is_Active != totalPage.length ) {
-                        <li><a> &gt; </a></li>
+                        <li><a (click)="Next()"> &gt; </a></li>
                         }
 
                     </ul>
@@ -142,10 +136,5 @@
     </div>
 
 
-
-
     <!-- Footer -->
-
-
-
 </div>

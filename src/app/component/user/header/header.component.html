@@ -23,8 +23,13 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a routerLink="/" class="active">Home</a></li>
-                        <li><a routerLink="shop">Our Shop</a></li>
-                        <li><a href="#">Sign In</a></li>
+                        <li><a (click)="routerShop()">Our Shop</a></li>
+                        <li><a class="cart" routerLink="cart">Cart</a>
+                            @if (total>0) {
+                            <span class="quantity">{{total}}</span>
+                            }
+                        </li>
+                        <li><a routerLink="/login">Sign In</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>

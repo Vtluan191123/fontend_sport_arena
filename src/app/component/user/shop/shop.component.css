@@ -1,0 +1,200 @@
+/* Background */
+.filter-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Làm mờ lớp nền */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ffffff;
+    /* Viền trắng */
+}
+
+/* Tiêu đề */
+h4.text-center {
+    font-family: 'Arial Black', sans-serif;
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Input Fields */
+form .form-control {
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+/* Price Range */
+#priceRange {
+    accent-color: #28a745;
+    /* Màu thanh kéo */
+}
+
+/* Nút Apply Filter */
+form .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+form .btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1c7430;
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Làm mờ nền */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+/* Icon bóng đá */
+.football-icon img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Input tìm kiếm */
+.search-bar .form-control {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+/* Nút tìm kiếm */
+.search-bar .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.search-bar .btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1c7430;
+}
+
+.highlight {
+    font-size: 1.5em;
+    /* Làm chữ lớn hơn */
+    font-weight: bold;
+    /* Làm chữ đậm */
+    color: #32CD32;
+    /* Màu chữ */
+}
+
+.normal {
+    font-size: 1.5em;
+    /* Làm chữ lớn hơn */
+    font-weight: bold;
+    /* Làm chữ đậm */
+    color: red;
+    /* Màu chữ */
+}
+
+.image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.down-content {
+    position: relative;
+    height: 246px;
+}
+
+.custom {
+    position: absolute;
+    bottom: 25px;
+}
+
+button,
+a {
+    cursor: pointer !important;
+}
+
+/* Đặt màu nền cho form và các thành phần con */
+.form-group {
+    background-color: #e8e8e8;
+    /* Màu nền xám nhạt */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Kiểu dáng của label */
+.form-group label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    /* Màu chữ tối */
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+label {
+    margin: 0px !important;
+}
+
+/* Kiểu dáng checkbox */
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    accent-color: #0f7bff;
+    /* Màu xanh kiểu bóng đá */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hiệu ứng khi hover qua checkbox */
+input[type="checkbox"]:hover {
+    transform: scale(1.2);
+    /* Phóng to khi hover */
+    border: 2px solid #0f7bff;
+    /* Thêm viền khi hover */
+}
+
+/* Khi checkbox được chọn */
+input[type="checkbox"]:checked {
+    background-color: #0f7bff;
+    /* Màu xanh kiểu bóng đá khi chọn */
+    border-color: #0f7bff;
+}
+
+/* Kiểu dáng label cho checkbox */
+.form-group input[type="checkbox"]+label {
+    font-size: 1.1em;
+    color: #333;
+    display: inline-block;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Hover hiệu ứng cho label khi hover */
+.form-group input[type="checkbox"]:hover+label {
+    color: #0f7bff;
+    /* Thay đổi màu khi hover */
+}
+
+/* Định dạng cho tất cả các checkbox trong cùng một dòng */
+.form-group div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Tạo khoảng cách giữa checkbox và label */
+.form-group div input[type="checkbox"] {
+    margin-top: 5px;
+}
+
+/* Tạo hiệu ứng cho container */
+.form-group div input[type="checkbox"]:checked+label {
+    color: #0f7bff;
+    /* Chỉnh màu khi checkbox được chọn */
+}

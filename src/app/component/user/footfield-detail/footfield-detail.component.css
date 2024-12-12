@@ -39,6 +39,12 @@
      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
  }
 
+ .active_parent {
+     transform: scale(1.1);
+     background: linear-gradient(45deg, #0056b3, #003d7a) !important;
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3) !important;
+ }
+
  /* Container danh sách nút */
  .button-container {
      max-width: 800px;
@@ -82,8 +88,8 @@
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
  }
 
- .custom-button.disabled {
-     background: red !important;
+ .disabled {
+     background: #ee626b !important;
      /* Màu xám nhạt hơn */
      color: #9e9e9e;
      /* Màu chữ nhạt hơn */
@@ -95,4 +101,15 @@
      /* Vô hiệu hóa các sự kiện chuột */
      transform: none;
      /* Không thay đổi kích thước */
+ }
+
+ .image {
+     height: 450px;
+     object-fit: cover;
+ }
+
+ button.active_item {
+     transform: translateY(-3px);
+     background: linear-gradient(45deg, #1e7e34, #155d27) !important;
+     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3) !important;
  }

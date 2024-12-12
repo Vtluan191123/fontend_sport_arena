@@ -14,4 +14,9 @@ export class FootballfieldDetailServiceService {
   getFootFieldById(id: number): any {
     return this.http.get(this.url + "/" + id);
   }
+
+  expirationTime() {
+    return this.http.get(this.url + "/checkTimeExpiration")
+  }
+
 }

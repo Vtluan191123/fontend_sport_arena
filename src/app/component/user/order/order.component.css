@@ -1,0 +1,107 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa ảnh theo chiều ngang */
+    align-items: center;
+    /* Căn giữa ảnh theo chiều dọc */
+    height: 400px;
+    /* Đặt chiều cao cho container */
+}
+
+/* Cấu hình cho ảnh */
+.gif-image {
+    width: 300px;
+    /* Đặt chiều rộng cho ảnh */
+    height: auto;
+    /* Chiều cao tự động dựa trên tỷ lệ */
+
+    border-radius: 15px;
+    /* Bo góc ảnh */
+    transition: transform 0.3s ease-in-out;
+    /* Hiệu ứng thay đổi kích thước */
+}
+
+/* Hiệu ứng khi di chuột vào ảnh */
+.gif-image:hover {
+    transform: scale(1.1);
+    /* Phóng to ảnh khi di chuột */
+}
+
+/* Tổng thể container của bảng */
+
+.wrapper {
+
+    padding: 100px;
+}
+
+.table-container {
+    width: 80%;
+    margin-top: 50px;
+    margin: 0 auto;
+    padding: 50px 50px 30px 50px;
+    background-color: #4CAF50;
+    /* Màu sân cỏ bóng đá */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #000;
+    font-size: 2em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #000;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+th {
+    background-color: #388E3C;
+    /* Màu xanh lá cây đậm giống như sân cỏ */
+    color: #fff;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover td {
+    background-color: #e1e1e1;
+    /* Đổi màu khi hover */
+}
+
+/* Thêm hình ảnh bóng đá vào background */
+.table-container {
+    background-image: url('https://example.com/soccer-field.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Các biểu tượng bóng đá */
+td:before {
+    content: url('https://example.com/soccer-ball-icon.png');
+    /* Thêm icon bóng đá nếu cần */
+    margin-right: 10px;
+}

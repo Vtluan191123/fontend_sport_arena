@@ -1,0 +1,107 @@
+<div>
+
+
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Order</h3>
+                    <span class="breadcrumb"><a routerLink="/home">Home</a> > Order</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-page section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="left-text">
+                        <div class="section-heading">
+                            <h6>{{data.data.day}}</h6>
+                            <h2>Say Hello!</h2>
+                        </div>
+                        <h2>Danh sách sân bóng muốn đặt</h2>
+                        @if (data) {
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên Sân</th>
+                                    <th>Số Sân</th>
+                                    <th>Thời Gian</th>
+                                    <th>Giá / giờ</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @for (item of data.data.resCartDetails; track $index) {
+                                <tr>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{item.fieldName}}</td>
+                                    <td>{{item.fieldChildName}}</td>
+                                    <td>{{item.timeFrame}}</td>
+                                    <td>{{item.price | currency:'VND':'code'}}</td>
+
+                                </tr>
+                                }
+
+                            </tbody>
+
+
+                        </table>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="image-container">
+                                    <img src="images/anh_dong_order.gif" class="gif-image">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <form id="contact-form" action="" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <fieldset>
+                                                <input type="name" [(ngModel)]="orderObj.bookerName" name="name"
+                                                    id="name" placeholder="Tên người đăt..." autocomplete="on" required>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <fieldset>
+                                                <input type="tel" [(ngModel)]="orderObj.bookerPhoneNumber" name="phone"
+                                                    id="phone" pattern="[^ @]*@[^ @]*" placeholder="Số điện thoại..."
+                                                    required="">
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <textarea name="message" [(ngModel)]="orderObj.bookerMessage"
+                                                    id="message" placeholder="Lời nhắn.... "></textarea>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <fieldset>
+                                                <button (click)="handleOrder()" type="button" id="form-submit"
+                                                    class="orange-button">Đặt sân
+                                                    ngay</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
