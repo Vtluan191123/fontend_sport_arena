@@ -5,14 +5,24 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SendDataService {
-  private dataSource = new BehaviorSubject<any>(null); // Tạo một BehaviorSubject để lưu dữ liệu
-  currentData: any = this.dataSource.asObservable(); // Cho phép components khác subscribe vào
+
+  private dataLocalStorage = new BehaviorSubject<any>(localStorage.getItem('token')); // Tạo một BehaviorSubject để lưu dữ liệu
+  currentDataLocalstorage: any = this.dataLocalStorage.asObservable(); // Cho phép components khác subscribe vào
+
+
+  private dataInforUser = new BehaviorSubject<any>(null); // Tạo một BehaviorSubject để lưu dữ liệu
+  currentDataInforUsere: any = this.dataInforUser.asObservable();
+
 
   constructor() { }
 
   // Hàm để cập nhật dữ liệu
-  updateData(data: any) {
-    this.dataSource.next(data);
+  updateLocalStorage(value: any) {
+    this.dataLocalStorage.next(value);
+  }
+
+  updateInforUser(value: any) {
+    this.dataInforUser.next(value);
   }
 }
 
