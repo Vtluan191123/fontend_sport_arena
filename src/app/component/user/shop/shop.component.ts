@@ -4,6 +4,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe, NgClass, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-shop',
@@ -24,18 +25,18 @@ export class ShopComponent {
     "timeFrame": "",
     "sort": "",
     "capacity": "",
-    "price": []
+    "price": [] = []
   }
 
   list_football_fields: any = [];
 
+  urlImage: any
 
 
 
 
 
-
-  constructor(private homeService: HomeServiceService, private router: Router) { }
+  constructor(private homeService: HomeServiceService, private router: Router, private userService: UserService) { }
 
 
 
@@ -55,6 +56,7 @@ export class ShopComponent {
   getFootballFields(): void {
     this.homeService.getAllFootField(this.filter).subscribe((res: any) => {
       this.list_football_fields = res;
+      this.urlImage = this.userService.urlGetImage;
       // Cập nhật số trang (totalPage) từ API
       this.totalPage = [...Array(res.page.totalPage)].map((_, i) => i + 1);
     });
@@ -89,8 +91,7 @@ export class ShopComponent {
 
   searchName() {
 
-    this.getFootballFields();
-    this.filter.name = ''
+    this.getFootballFields()
 
   }
 

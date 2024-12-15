@@ -4,6 +4,7 @@ import { CurrencyPipe, NgClass } from '@angular/common';
 import { RouterModule, Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { cartService } from '../../../service/cart.service';
 import { log } from 'node:console';
+import { AuthService } from '../../../service/auth.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class FootfieldDetailComponent implements OnInit {
   timeframes: number[] = [];
 
   footfieldchild_and_timeframe: any = {
-    "email": "vtluan1911233@gmail.com",
+    "email": "",
     "idFootField": "",
     "footfieldChild": {},
     "timeframes": [
@@ -41,10 +42,13 @@ export class FootfieldDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private footballFieldDetailService: FootballfieldDetailServiceService,
-    private cartService: cartService
+    private cartService: cartService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+
+    this.getInforUser()
 
     this.footballFieldDetailService.expirationTime().subscribe((data: any) => {
       console.log('set time after now success');
@@ -67,6 +71,15 @@ export class FootfieldDetailComponent implements OnInit {
     this.fetchData();
 
     this.footfieldchild_and_timeframe.idFootField = this.id;
+  }
+
+
+  getInforUser() {
+    this.authService.getAccount().subscribe((res) => {
+
+      this.footfieldchild_and_timeframe.email = res.data.email
+
+    })
   }
 
   fetchData(): void {
@@ -135,11 +148,8 @@ export class FootfieldDetailComponent implements OnInit {
   handleAddToCart() {
     this.cartService.addToCart(this.footfieldchild_and_timeframe).subscribe((data: any) => {
       this.router.navigate(["/cart"])
-      console.log(this.footfieldchild_and_timeframe);
-
     }, (err: any) => {
-      console.log('err', err);
-
+      this.router.navigate(["/login"])
     })
   }
 

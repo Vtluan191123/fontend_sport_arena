@@ -77,23 +77,23 @@
                             <div class="form-group mb-3">
                                 <label class="text-black">💰<br> Price Range</label>
                                 <div class="d-flex justify-content-start align-items-center mb-3">
-                                    <input id="price1" type="checkbox" [(ngModel)]="filter.price" [value]="'0-200000'"
+                                    <input id="price1" name="a" type="checkbox" [value]="'0-200000'"
                                         (change)="onPriceChange($event)" />
                                     <label for="price1">0-200k</label>
                                 </div>
                                 <div class="justify-content-start d-flex align-items-center mb-3">
-                                    <input id="price2" type="checkbox" [(ngModel)]="filter.price"
-                                        [value]="'200000-500000'" (change)="onPriceChange($event)" />
+                                    <input id="price2" type="checkbox" name="b" [value]="'200000-500000'"
+                                        (change)="onPriceChange($event)" />
                                     <label for="price2">200k-500k</label>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center mb-3">
-                                    <input id="price3" type="checkbox" [(ngModel)]="filter.price"
-                                        [value]="'500000-700000'" (change)="onPriceChange($event)" />
+                                    <input id="price3" name="c" type="checkbox" [value]="'500000-700000'"
+                                        (change)="onPriceChange($event)" />
                                     <label for="price3">500k-700k</label>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center mb-3">
-                                    <input id="price4" type="checkbox" [(ngModel)]="filter.price"
-                                        [value]="'700000-999999999999'" (change)="onPriceChange($event)" />
+                                    <input id="price4" type="checkbox" name="d" [value]="'700000-999999999999'"
+                                        (change)="onPriceChange($event)" />
                                     <label for="price"> > 700k</label>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                         <div class="item border  overflow-hidden">
                             <div class="thumb position-relative">
                                 <a (click)="navigateFootballDetail(item.id)"><img class="image"
-                                        src="images/{{item.image}}" alt=""></a>
+                                        src="{{urlImage}}/{{item.image}}" alt=""></a>
 
                             </div>
                             <div class="down-content p-3">

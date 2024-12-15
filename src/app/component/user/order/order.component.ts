@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../../service/order.service';
 import { error } from 'console';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-order',
@@ -18,7 +19,7 @@ export class OrderComponent implements OnInit {
   dataLocal: string = ''
 
   orderObj: any = {
-    "email": 'vtluan1911233@gmail.com',
+    "email": '',
 
     "orderDetails": [],
     "date": '',
@@ -26,7 +27,7 @@ export class OrderComponent implements OnInit {
     "bookerPhoneNumber": '',
     "bookerMessage": ''
   }
-  constructor(private orderService: OrderService, private router: Router) {
+  constructor(private orderService: OrderService, private router: Router, private authService: AuthService) {
 
   }
 
@@ -35,7 +36,17 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
 
     this.fetchCartDetail()
+    this.getInforUser()
+  }
 
+
+  getInforUser() {
+    this.authService.getAccount().subscribe((res) => {
+
+      this.orderObj.email = res.data.email
+
+      console.log('check', this.orderObj.email);
+    })
   }
 
 

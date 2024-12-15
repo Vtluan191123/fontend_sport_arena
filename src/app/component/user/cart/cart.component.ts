@@ -5,6 +5,7 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 import { SendDataService } from '../../../service/send-data.service';
 import { json } from 'stream/consumers';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,15 +16,26 @@ import { json } from 'stream/consumers';
 })
 export class CartComponent implements OnInit {
 
-  email: string = 'vtluan1911233@gmail.com';
+  email: string = ''
   fetchdata: any;
 
-  constructor(private cartService: cartService) {
+  constructor(private cartService: cartService, private authService: AuthService, private sendLocalStorage: SendDataService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.generaterCart();
 
+    this.getInforUser();
+  }
+
+  getInforUser() {
+    this.authService.getAccount().subscribe((res) => {
+
+      this.email = res.data.email
+      this.generaterCart();
+      console.log('check', this.email);
+    }, (error) => {
+      this.router.navigate(['/login'])
+    })
   }
 
 
@@ -31,7 +43,7 @@ export class CartComponent implements OnInit {
     this.cartService.generaterCart(this.email).subscribe((data: any) => {
       this.fetchdata = data;
       localStorage.setItem('total', JSON.stringify(this.fetchdata.data.total))
-
+      this.sendLocalStorage.updateLocalStorage(JSON.stringify(this.fetchdata.data.total));
     }, (error: any) => {
       console.log('loi', error);
 

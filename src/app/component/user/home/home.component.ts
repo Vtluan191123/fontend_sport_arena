@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterModule } from '@angular/router';
 import { HomeServiceService } from '../../../service/home-service.service';
 import { CurrencyPipe, NgClass } from '@angular/common';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ export class HomeComponent implements OnInit {
 
   is_Active: number = 1;
 
+  urlImage: any;
+
 
   filter: any = {
     "page": "1",
@@ -28,10 +31,9 @@ export class HomeComponent implements OnInit {
     "price": ""
   }
 
-  constructor(private homeService: HomeServiceService, private router: Router) {
+  constructor(private homeService: HomeServiceService, private router: Router, private userService: UserService) {
 
   }
-
   list_football_fields: any = [];
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class HomeComponent implements OnInit {
   getFootballFields(): void {
     this.homeService.getAllFootField(this.filter).subscribe((res: any) => {
       this.list_football_fields = res.data;
+      this.urlImage = this.userService.urlGetImage;
 
       // Cập nhật số trang (totalPage) từ API
       this.totalPage = [...Array(res.page.totalPage)].map((_, i) => i + 1);
@@ -95,5 +98,4 @@ export class HomeComponent implements OnInit {
       console.log('LocalStorage is already up to date for:', today);
     }
   }
-
 }

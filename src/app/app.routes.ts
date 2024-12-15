@@ -9,6 +9,7 @@ import { LayoutComponent } from './component/user/layout/layout.component';
 import { OrderComponent } from './component/user/order/order.component';
 import { PagenotfoundComponent } from './component/user/pagenotfound/pagenotfound.component';
 import { OrdersuccessComponent } from './component/user/ordersuccess/ordersuccess.component';
+import { InforUserComponent } from './component/user/infor-user/infor-user.component';
 
 export const routes: Routes = [
 
@@ -22,7 +23,8 @@ export const routes: Routes = [
             { path: 'footfield_detail', component: FootfieldDetailComponent },
             { path: 'cart', component: CartComponent },
             { path: 'login', component: LoginComponent },
-            { path: 'resgiter', component: ResgiterComponent },
+            { path: 'myInfor', component: InforUserComponent },
+            { path: 'register', component: ResgiterComponent },
             { path: 'ordersuccess', component: OrdersuccessComponent },
             { path: 'order', component: OrderComponent },
             { path: '**', redirectTo: 'pagenotfound' },

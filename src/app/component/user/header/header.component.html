@@ -29,7 +29,27 @@
                             <span class="quantity">{{total}}</span>
                             }
                         </li>
+                        @if (inforUser) {
+                        <div class="dropdown">
+                            <li><a class="dropdown-toggle " role="button"
+                                    style="display: flex;align-items: center;">{{inforUser.name}}<img src="{{urlImage}}"
+                                        style="margin-left: 10px; height: 25px;width: 25px;border-radius: 50%;"
+                                        alt=""></a>
+                                <ul class="dropdowr">
+                                    <li class="dropdown-item"><button routerLink="/myInfor" class="btn w-100 h-100">My
+                                            Info</button>
+                                    </li>
+                                    <li class="dropdown-item"><button class="btn w-100">My Order</button>
+                                    </li>
+                                    <li class="dropdown-item"><button (click)="logOut()"
+                                            class="btn w-100">LogOut</button></li>
+                                </ul>
+                            </li>
+                        </div>
+                        }@else {
+
                         <li><a routerLink="/login">Sign In</a></li>
+                        }
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
