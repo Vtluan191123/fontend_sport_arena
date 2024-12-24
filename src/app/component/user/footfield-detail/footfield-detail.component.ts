@@ -50,10 +50,10 @@ export class FootfieldDetailComponent implements OnInit {
 
     this.getInforUser()
 
-    this.footballFieldDetailService.expirationTime().subscribe((data: any) => {
-      console.log('set time after now success');
+    // this.footballFieldDetailService.expirationTime().subscribe((data: any) => {
+    //   console.log('set time after now success');
 
-    })
+    // })
 
     this.check = new Array(this.time_items.length).fill(false);
     // Lắng nghe sự kiện navigation

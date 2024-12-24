@@ -91,7 +91,7 @@
                     <div class="item">
                         <div class="thumb">
                             <a (click)="navigateFootballDetail(item.id)"><img class="image"
-                                    src="{{urlImage}}/{{item.image}}" alt=""></a>
+                                    src="{{urlImage}}{{item.image}}" alt=""></a>
                         </div>
                         <div class="down-content">
                             <span class="category">Trạng thái: <strong [ngClass]="item.status ? 'highlight' : 'normal'">

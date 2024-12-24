@@ -8,9 +8,36 @@
         </div>
     </div>
 </div>
-<div class="profile-container">
-    <h2>Thông Tin Người Dùng</h2>
-    <div class="image-container">
-        <img [src]="imageUrl" alt="User Avatar" class="profile-img">
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" enctype="multipart/form-data">
+    <div class="profile-container">
+        <h2>Thông Tin Người Dùng</h2>
+        <div class="image-container">
+            <img [src]="imageUrl" id="image" alt="User Avatar" class="profile-img"><br>
+            <input #imageFile type="file" (change)="handleShowImage($event)" class="d-none"><br>
+            <button type="button" (click)="triggerFileInput(imageFile)" class="btn btn-warning">Thay đổi ảnh đại
+                diện</button>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div style="text-align: start; width: 350px">
+                <input value="{{dataInfor.data.id}}"
+                    style="padding: 5px;display: none; border-radius: 10px; font-size: 20px; width: 100%;"
+                    type="text"><br>
+                <label>Họ tên:</label><br>
+                <input name="name" style="padding: 5px; border-radius: 10px; font-size: 20px ;width: 100%; " type="text"
+                    [(ngModel)]="objDataInfor.name"><br>
+
+                <label>Email:</label><br>
+                <input disabled style="padding: 5px; border-radius: 10px; font-size: 20px ; width: 100%;" type="text"
+                    value="{{dataInfor.data.email}}"><br>
+                <label>Số điện thoại:</label><br>
+                <input name="phoneNumber" style="padding: 5px; border-radius: 10px; font-size: 20px ; width: 100%;"
+                    type="text" [(ngModel)]="objDataInfor.phoneNumber"><br>
+
+            </div>
+        </div>
+        <div class="mt-5">
+            <button routerLink="/" class="btn btn-success mx-3">Back</button>
+            <button type="submit" class="btn btn-primary">Thay đổi thông tin</button>
+        </div>
     </div>
-</div>
+</form>

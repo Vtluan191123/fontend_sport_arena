@@ -33,13 +33,18 @@ export class HeaderComponent {
   getInforUser() {
     this.authService.getAccount().subscribe((res) => {
 
+
+      this.sendDataservice.updateLocalStorage(res.data.totalCart)
       this.sendDataservice.updateInforUser(res.data); // Cập nhật dữ liệu vào BehaviorSubject
+      console.log('run here', res.data);
     });
 
     // Subscribe vào BehaviorSubject để nhận dữ liệu
     this.sendDataservice.currentDataInforUsere.subscribe((data: any) => {
       this.inforUser = data;
-      this.urlImage = this.userService.getImage(this.inforUser.image);
+
+
+      this.urlImage = this.userService.urlGetImage + "userImages/" + this.inforUser.image
     }, (error: any) => {
       console.log(error);
     });
@@ -48,7 +53,9 @@ export class HeaderComponent {
   getTotal() {
     this.sendDataservice.currentDataLocalstorage.subscribe((data: any) => {
       this.total = data
-      console.log('check total', this.total);
+
+      console.log('check total', data);
+      debugger
 
     })
   }

@@ -27,7 +27,7 @@ export class OrderComponent implements OnInit {
     "bookerPhoneNumber": '',
     "bookerMessage": ''
   }
-  constructor(private orderService: OrderService, private router: Router, private authService: AuthService) {
+  constructor(private orderService: OrderService, private router: Router, private sendData: SendDataService, private authService: AuthService) {
 
   }
 
@@ -72,6 +72,7 @@ export class OrderComponent implements OnInit {
     this.orderService.createOrder(this.orderObj).subscribe((data: any) => {
       console.log("create order success", data);
       localStorage.setItem('total', JSON.stringify(0));
+      this.sendData.updateLocalStorage(0)
       this.router.navigate(['/ordersuccess'])
 
     }, (error: any) => {
