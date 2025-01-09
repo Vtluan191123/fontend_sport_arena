@@ -104,11 +104,15 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @if (errConfirm) {
+                                            <div style="color: red;">{{errConfirm}}</div>
+                                            }
+
 
                                             <div class="col-12 d-flex justify-content-end">
                                                 <button (click)="handleCreateUser()" type="submit"
                                                     class="btn btn-primary me-1 mb-1">Create</button>
-                                                <button type="reset"
+                                                <button type="reset" (click)="handleReset()"
                                                     class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                             </div>
                                         </div>

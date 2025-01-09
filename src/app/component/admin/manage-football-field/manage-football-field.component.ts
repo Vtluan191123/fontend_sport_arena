@@ -33,14 +33,5 @@ export class ManageFootballFieldComponent implements OnInit {
     })
   }
 
-  handleGetAllUsers() {
-    this.userService.getAllUser().subscribe((res: any) => {
-      console.log('res', res)
-      this.listUsers = res.data
-      debugger
-    }, (error: any) => {
-      console.log(error)
-      throw new error
-    })
-  }
+
 }
