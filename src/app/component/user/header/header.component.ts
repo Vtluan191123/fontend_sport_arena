@@ -44,7 +44,7 @@ export class HeaderComponent {
       this.inforUser = data;
 
 
-      this.urlImage = this.userService.urlGetImage + "userImages/" + this.inforUser.image
+      this.urlImage = this.userService.urlGetImage + "user-images/" + this.inforUser.image
     }, (error: any) => {
       console.log(error);
     });
@@ -55,7 +55,6 @@ export class HeaderComponent {
       this.total = data
 
       console.log('check total', data);
-      debugger
 
     })
   }

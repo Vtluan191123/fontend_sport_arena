@@ -23,12 +23,16 @@
 
 .down-content {
     position: relative;
-    height: 246px;
+    height: 300px;
 }
 
 .custom {
     position: absolute;
     bottom: 25px;
+}
+
+.red {
+    color: red;
 }
 
 button,

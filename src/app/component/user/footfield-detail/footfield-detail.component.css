@@ -108,6 +108,13 @@
      object-fit: cover;
  }
 
+ .img-review {
+     width: 150px;
+     height: 150px;
+     object-fit: cover;
+     margin: 5px;
+ }
+
  button.active_item {
      transform: translateY(-3px);
      background: linear-gradient(45deg, #1e7e34, #155d27) !important;
@@ -159,4 +166,47 @@
      color: #f4b400;
      /* Màu vàng sao */
      font-size: 1.2rem;
+ }
+
+ .rating-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+     margin: 20px auto;
+     padding: 10px;
+     border: 1px solid #a8d5ba;
+     border-radius: 8px;
+     background-color: #eafaf1;
+     max-width: 600px;
+ }
+
+ .rating-button {
+     padding: 10px 15px;
+     border: 1px solid #28a745;
+     border-radius: 5px;
+     background-color: #d4edda;
+     color: #155724;
+     font-size: 16px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+
+ .rating-button:hover {
+     background-color: #c3e6cb;
+     border-color: #218838;
+     color: #0c5520;
+ }
+
+ .rating-button:active {
+     background-color: #a1d9b4;
+     border-color: #1e7e34;
+     color: #0a3d16;
+ }
+
+
+ .rating-button:focus {
+     background-color: #a1d9b4;
+     border-color: #1e7e34;
+     color: #0a3d16;
  }

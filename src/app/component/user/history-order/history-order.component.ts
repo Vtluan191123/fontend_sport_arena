@@ -5,6 +5,7 @@ import { OrderService } from '../../../service/order.service';
 import { AuthService } from '../../../service/auth.service';
 import { error } from 'console';
 import { FormsModule } from '@angular/forms';
+import { SendDataService } from '../../../service/send-data.service';
 
 @Component({
   selector: 'app-history-order',
@@ -23,7 +24,7 @@ export class HistoryOrderComponent implements OnInit {
   data: any
   isReview: boolean = false;
 
-  constructor(private orderService: OrderService, private authService: AuthService, private router: Router) { }
+  constructor(private orderService: OrderService, private authService: AuthService, private router: Router, private sendData: SendDataService) { }
 
   getInforUser() {
     this.authService.getAccount().subscribe((res) => {
@@ -45,8 +46,8 @@ export class HistoryOrderComponent implements OnInit {
   }
 
   handleReview(nameField: string) {
-    alert(nameField);
-
+    localStorage.setItem("nameField", nameField);
+    this.router.navigate(['/review'])
   }
 
 }

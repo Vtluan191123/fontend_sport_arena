@@ -10,6 +10,13 @@ import { OrderComponent } from './component/user/order/order.component';
 import { PagenotfoundComponent } from './component/user/pagenotfound/pagenotfound.component';
 import { OrdersuccessComponent } from './component/user/ordersuccess/ordersuccess.component';
 import { InforUserComponent } from './component/user/infor-user/infor-user.component';
+import { ManageUserComponent } from './component/admin/manage-user/manage-user.component';
+import { LayoutAdminComponent } from './component/admin/layout-admin/layout-admin.component';
+import { ManageFootballFieldComponent } from './component/admin/manage-football-field/manage-football-field.component';
+import { DashboardComponent } from './component/admin/dashboard/dashboard.component';
+import { ManageVouchersComponent } from './component/admin/manage-vouchers/manage-vouchers.component';
+import { ManageOrdersComponent } from './component/admin/manage-orders/manage-orders.component';
+import { CreateUserComponent } from './component/admin/create-user/create-user.component';
 
 export const routes: Routes = [
 
@@ -27,10 +34,26 @@ export const routes: Routes = [
             { path: 'register', component: ResgiterComponent },
             { path: 'ordersuccess', component: OrdersuccessComponent },
             { path: 'order', component: OrderComponent },
-            { path: '**', redirectTo: 'pagenotfound' },
-            { path: 'pagenotfound', component: PagenotfoundComponent },
 
+            { path: 'pagenotfound', component: PagenotfoundComponent },
+            { path: 'users', component: ManageUserComponent },
         ]
     },
+    {
+        path: 'admin',
+        component: LayoutAdminComponent, // Layout admin
+        children: [
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'users', component: ManageUserComponent },
+            { path: 'footballFields', component: ManageFootballFieldComponent },
+            { path: 'vouchers', component: ManageVouchersComponent },
+            { path: 'orders', component: ManageOrdersComponent },
+            { path: 'create-user', component: CreateUserComponent }
+            // Các route khác của admin
+        ],
+    },
+
+    { path: '**', redirectTo: 'pagenotfound' },
 
 ];

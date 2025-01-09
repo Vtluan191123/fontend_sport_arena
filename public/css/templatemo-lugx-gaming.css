@@ -17,7 +17,7 @@ Table of contents
 06. features
 07. testimonials
 08. contact
-09. footer
+09. .footer-client
 
 --------------------------------------------- */
 /* 
@@ -88,7 +88,6 @@ nav,
 section,
 article,
 aside,
-footer,
 figcaption {
   margin: 0;
   padding: 0;
@@ -129,7 +128,7 @@ nav,
 section,
 article,
 aside,
-footer,
+.footer-client,
 hgroup {
   display: block;
 }
@@ -1202,11 +1201,11 @@ CTA Style
 
 /* 
 ---------------------------------------------
-Footer Style
+.footer-client Style
 --------------------------------------------- 
 */
 
-footer {
+.footer-client {
   margin-top: 50px;
   background-color: #0071f8;
   background-repeat: no-repeat;
@@ -1216,7 +1215,7 @@ footer {
   border-radius: 150px 150px 0px 0px;
 }
 
-footer p {
+.footer-client p {
   text-align: center;
   line-height: 90px;
   color: #fff;
@@ -1224,14 +1223,14 @@ footer p {
   font-weight: 400;
 }
 
-footer p a {
+.footer-client p a {
   color: #fff;
   transition: all .3s;
   position: relative;
   z-index: 3;
 }
 
-footer p a:hover {
+.footer-client p a:hover {
   opacity: 0.75;
 }
 

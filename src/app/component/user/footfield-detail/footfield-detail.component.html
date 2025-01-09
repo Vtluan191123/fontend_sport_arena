@@ -74,14 +74,16 @@
                         <div class="nav-wrapper ">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                                        data-bs-target="#description" type="button" role="tab"
-                                        aria-controls="description" aria-selected="true">Description</button>
+                                    <button (click)="handleRevierByStar('')" class="nav-link active"
+                                        id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
+                                        type="button" role="tab" aria-controls="description"
+                                        aria-selected="true">Description</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
-                                        data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews"
-                                        aria-selected="false">Reviews (3)</button>
+                                    <button (click)="handleRevierByStar('')" class="nav-link" id="reviews-tab"
+                                        data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab"
+                                        aria-controls="reviews" aria-selected="false">Reviews
+                                        ({{data.totalReview}})</button>
                                 </li>
                             </ul>
                         </div>
@@ -93,56 +95,56 @@
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="reviews">
 
+                                    <div class="rating-container">
+                                        <button (click)="handleRevierByStar('')" class="rating-button">Tất cả</button>
+                                        <button (click)="handleRevierByStar(5)" class="rating-button">5 sao</button>
+                                        <button (click)="handleRevierByStar(4)" class="rating-button">4 sao</button>
+                                        <button (click)="handleRevierByStar(3)" class="rating-button">3 sao</button>
+                                        <button (click)="handleRevierByStar(2)" class="rating-button">2 sao</button>
+                                        <button (click)="handleRevierByStar(1)" class="rating-button">1 sao</button>
+                                    </div>
+                                    @if (data.reviews.length > 0) {
+                                    @for (item of data.reviews; track $index) {
                                     <div class="review-item">
                                         <div class="avatar">
-                                            <img src="images/san_bong_1.jpg" alt="User Avatar">
+                                            <img src="{{rootImagesAvt}}{{item.user.image}}" alt="User Avatar">
 
                                         </div>
                                         <div>
-                                            <h4 class="user-name">Tran Thi B</h4>
-                                            <div class="stars">
-                                                ★★★★★
+                                            <h4 class="user-name">{{item.user.name}}</h4>
+                                            <div>
+
+
+                                                @for (item of numberToArray(item.stars); track $index) {
+                                                <span class="stars">★</span>
+                                                }
                                             </div>
-                                            <p>19-11-2003</p>
-                                        </div>
-                                        <div class="review-content">
-
-
-                                            <p class="content">Để render số sao động dựa trên giá trị nhận từ API (ví
-                                                dụ: stars = 4.8), bạn có thể sử dụng Angular để tính toán và hiển
-                                                thị các ngôi sao. Dưới đây là cách thực hiện:</p>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="review-item">
-                                        <div class="avatar">
-                                            <img src="images/san_bong_1.jpg" alt="User Avatar">
-
+                                            <p>{{item.date}}</p>
                                         </div>
                                         <div>
-                                            <h4 class="user-name">Tran Thi B</h4>
-                                            <div class="stars">
-                                                ★★★★★
+                                            <div class="review-content">
+                                                <p class="content">{{item.content}}</p>
                                             </div>
-                                            <p>19-11-2003</p>
-                                        </div>
-                                        <div class="review-content">
+                                            <div class="d-flex">
+                                                @for (item of handleImageReview(item.images); track $index) {
+                                                <div class="img-review">
+                                                    @if (item) {
+                                                    <img style="height: 100% !important;"
+                                                        src="{{rootImagesReview}}{{item}}" alt="User Avatar">
+                                                    }
+
+                                                </div>
+                                                }
 
 
-                                            <p class="content">Để render số sao động dựa trên giá trị nhận từ API (ví
-                                                dụ: stars = 4.8), bạn có thể sử dụng Angular để tính toán và hiển
-                                                thị các ngôi sao. Dưới đây là cách thực hiện:
-                                                Để render số sao động dựa trên giá trị nhận từ API (ví
-                                                dụ: stars = 4.8), bạn có thể sử dụng Angular để tính toán và hiển
-                                                thị các ngôi sao. Dưới đây là cách thực hiện:
-                                                Để render số sao động dựa trên giá trị nhận từ API (ví
-                                                dụ: stars = 4.8), bạn có thể sử dụng Angular để tính toán và hiển
-                                                thị các ngôi sao. Dưới đây là cách thực hiện:</p>
-
+                                            </div>
                                         </div>
                                     </div>
 
+                                    }
+                                    }@else {
+                                    <h3>Không tồn tại review</h3>
+                                    }
                                 </div>
 
                             </div>

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,19 @@ export class UserService {
 
   getImage(imageName: String) {
 
-    return `${this.urlGetImage}+"userImages"+${imageName}`;
+    return `${this.urlGetImage}+"user-images"+${imageName}`;
   }
-
-
 
   putUser(objUpdate: any) {
 
     return this.http.put(this.url, objUpdate);
+  }
+
+  postReview(objReview: any) {
+    return this.http.post(`${this.url}/review`, objReview);
+  }
+
+  getAllUser(): Observable<any> {
+    return this.http.get(this.url);
   }
 }

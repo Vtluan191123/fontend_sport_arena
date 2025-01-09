@@ -94,6 +94,8 @@
                                     src="{{urlImage}}{{item.image}}" alt=""></a>
                         </div>
                         <div class="down-content">
+                            <span>Lượt đặt sân: {{item.totalOrder}}</span><br>
+                            <span style="color: rgb(240, 240, 13);font-size: 20px;">★</span> ({{item.star}})<br>
                             <span class="category">Trạng thái: <strong [ngClass]="item.status ? 'highlight' : 'normal'">
                                     @if (item.status) {
                                     Còn sân
@@ -103,7 +105,12 @@
                             <h4>{{item.name}}</h4>
                             <p>{{item.shortDes}}</p>
                             <div>
+                                @if (item.priceVouchers) {
+                                <del class="red">{{item.price | currency:'VND':'code'}}/giờ</del><br>
+                                <h5 class="custom">{{item.priceVouchers | currency:'VND':'code'}}/giờ</h5>
+                                }@else {
                                 <h5 class="custom">{{item.price | currency:'VND':'code'}}/giờ</h5>
+                                }
                                 <a class="d-block" (click)="navigateFootballDetail(item.id)"><i
                                         class="fa fa-shopping-bag"></i></a>
                             </div>

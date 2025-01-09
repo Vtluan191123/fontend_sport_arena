@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,9 @@ export class FootballfieldDetailServiceService {
   constructor(private http: HttpClient) {
   }
 
-  getFootFieldById(id: number): any {
-    return this.http.get(this.url + "/" + id);
+  getFootFieldById(id: number, star: any): any {
+    const params = new HttpParams().set('star', star);
+    return this.http.get(`${this.url}/${id}`, { params });
   }
 
   // expirationTime() {

@@ -5,6 +5,7 @@ import { RouterModule, Router, ActivatedRoute, NavigationEnd } from '@angular/ro
 import { cartService } from '../../../service/cart.service';
 import { log } from 'node:console';
 import { AuthService } from '../../../service/auth.service';
+import { UserService } from '../../../service/user.service';
 
 
 @Component({
@@ -23,6 +24,9 @@ export class FootfieldDetailComponent implements OnInit {
   item_parent: any = 1;
   check: boolean[] = [];
   timeframes: number[] = [];
+  rootImagesAvt: any
+  rootImagesReview: any
+  arrStars: any
 
   footfieldchild_and_timeframe: any = {
     "email": "",
@@ -43,17 +47,15 @@ export class FootfieldDetailComponent implements OnInit {
     private router: Router,
     private footballFieldDetailService: FootballfieldDetailServiceService,
     private cartService: cartService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
 
     this.getInforUser()
-
-    // this.footballFieldDetailService.expirationTime().subscribe((data: any) => {
-    //   console.log('set time after now success');
-
-    // })
+    this.rootImagesAvt = this.userService.urlGetImage + "user-images/"
+    this.rootImagesReview = this.userService.urlGetImage + "review-images/"
 
     this.check = new Array(this.time_items.length).fill(false);
     // Lắng nghe sự kiện navigation
@@ -85,7 +87,7 @@ export class FootfieldDetailComponent implements OnInit {
   fetchData(): void {
     if (!this.id) return; // Nếu ID không hợp lệ thì bỏ qua
 
-    this.footballFieldDetailService.getFootFieldById(this.id).subscribe(
+    this.footballFieldDetailService.getFootFieldById(this.id, '').subscribe(
       (res: any) => {
         this.data = res.data;
 
@@ -163,6 +165,35 @@ export class FootfieldDetailComponent implements OnInit {
     }
   }
 
+  numberToArray(n: number): number[] {
+    const result: number[] = [];
+    for (let i = 0; i < n; i++) {
+      result.push(i);
+    }
+    return result;
+  }
+
+  handleImageReview(images: string | null) {
+    if (!images || typeof images !== 'string') {
+      return []; // Trả về mảng rỗng nếu giá trị không hợp lệ
+    }
+    return images.split(",")
+  }
+
+  handleRevierByStar(star: any) {
+    this.footballFieldDetailService.getFootFieldById(this.id, star).subscribe(
+      (res: any) => {
+        this.data = res.data;
+
+        // Gọi handlerEachField sau khi fetch data thành công
+        this.handlerEachField(this.data.list_football_child[0]);
+
+      },
+      (error: any) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
 
 
 }

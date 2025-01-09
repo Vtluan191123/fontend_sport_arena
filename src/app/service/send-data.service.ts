@@ -13,6 +13,9 @@ export class SendDataService {
   private dataInforUser = new BehaviorSubject<any>(null); // Tạo một BehaviorSubject để lưu dữ liệu
   currentDataInforUsere: any = this.dataInforUser.asObservable();
 
+  private dataNameField = new BehaviorSubject<any>(null); // Tạo một BehaviorSubject để lưu dữ liệu
+  currentDataNameField: any = this.dataNameField.asObservable();
+
 
   constructor() { }
 
@@ -23,6 +26,10 @@ export class SendDataService {
 
   updateInforUser(value: any) {
     this.dataInforUser.next(value);
+  }
+
+  updateNameField(value: any) {
+    this.dataNameField.next(value);
   }
 }
 

@@ -7,5 +7,5 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { customInterceptor } from './intercepter/custom.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient(withInterceptors([customInterceptor])), provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+  providers: [provideHttpClient(withInterceptors([customInterceptor]), withFetch()), provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
 };

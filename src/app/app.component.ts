@@ -7,7 +7,7 @@ import { ResgiterComponent } from './component/user/resgiter/resgiter.component'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RouterLink, ResgiterComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

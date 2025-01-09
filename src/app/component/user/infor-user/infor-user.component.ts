@@ -36,7 +36,7 @@ export class InforUserComponent {
   getAccount() {
     this.authService.getAccount().subscribe((res: any) => {
       this.dataInfor = res;
-      this.imageUrl = this.userService.urlGetImage + "userImages/" + this.dataInfor.data.image
+      this.imageUrl = this.userService.urlGetImage + "user-images/" + this.dataInfor.data.image
       this.objDataInfor.id = this.dataInfor.data.id
       this.objDataInfor.name = this.dataInfor.data.name
       this.objDataInfor.phoneNumber = this.dataInfor.data.phoneNumber

@@ -10,33 +10,40 @@
 </div>
 
 <div class="wrapper mt-5">
-    <div class="football-review-container ">
+    <form (submit)="onSubmit()" class="football-review-container" enctype="multipart/form-data">
         <h1>Đánh giá sân bóng</h1>
 
         <!-- Vote sao (bóng đá) -->
         <div class="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
+            <input type="radio" (click)="handleStart($event)" checked id="star5" name="rate" value="5" />
             <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
+            <input type="radio" (click)="handleStart($event)" id="star4" name="rate" value="4" />
             <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
+            <input type="radio" (click)="handleStart($event)" id="star3" name="rate" value="3" />
             <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
+            <input type="radio" (click)="handleStart($event)" id="star2" name="rate" value="2" />
             <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
+            <input type="radio" (click)="handleStart($event)" id="star1" name="rate" value="1" />
             <label for="star1" title="text">1 star</label>
         </div>
 
         <!-- Bình luận -->
-        <textarea id="comment" placeholder="Nhập bình luận về sân bóng..." rows="5"></textarea>
+        <textarea id="comment" name="content" [(ngModel)]="objReview.content"
+            placeholder="Nhập bình luận về sân bóng..." rows="5"></textarea>
 
         <!-- Upload file -->
         <div class="file-upload">
-            <label for="file">Tải lên hình ảnh sân bóng:</label>
-            <input type="file" id="file" accept="image/*">
+            <label for="file">Tải lên hình ảnh sân bóng (tối đa 3 ảnh):</label>
+            <input type="file" id="file" accept="image/*" multiple (change)="handleFileUpload($event)">
+            <div class="preview-container">
+                <div *ngFor="let img of previewImages; let i = index" class="image-preview">
+                    <img [src]="img" alt="preview" />
+                    <button type="button" class="remove-btn" (click)="removeImage(i)">✖</button>
+                </div>
+            </div>
         </div>
 
         <!-- Gửi đánh giá -->
         <button class="btn btn-success" id="submit-review">Gửi đánh giá</button>
-    </div>
+    </form>
 </div>
