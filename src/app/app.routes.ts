@@ -17,6 +17,7 @@ import { DashboardComponent } from './component/admin/dashboard/dashboard.compon
 import { ManageVouchersComponent } from './component/admin/manage-vouchers/manage-vouchers.component';
 import { ManageOrdersComponent } from './component/admin/manage-orders/manage-orders.component';
 import { CreateUserComponent } from './component/admin/create-user/create-user.component';
+import { ViewUserComponent } from './component/admin/view-user/view-user.component';
 
 export const routes: Routes = [
 
@@ -49,7 +50,8 @@ export const routes: Routes = [
             { path: 'footballFields', component: ManageFootballFieldComponent },
             { path: 'vouchers', component: ManageVouchersComponent },
             { path: 'orders', component: ManageOrdersComponent },
-            { path: 'create-user', component: CreateUserComponent }
+            { path: 'create-user', component: CreateUserComponent },
+            { path: 'view-user', component: ViewUserComponent },
             // Các route khác của admin
         ],
     },
