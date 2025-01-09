@@ -13,7 +13,7 @@ export class UserService {
 
   getImage(imageName: String) {
 
-    return `${this.urlGetImage}+"user-images"+${imageName}`;
+    return `${this.urlGetImage}user-images/${imageName}`;
   }
 
   putUser(objUpdate: any) {
@@ -25,7 +25,25 @@ export class UserService {
     return this.http.post(`${this.url}/review`, objReview);
   }
 
-  getAllUser(): Observable<any> {
-    return this.http.get(this.url);
+  getAllUser(filter: any): Observable<any> {
+    let params = new HttpParams();
+    Object.keys(filter).forEach(key => {
+      if (filter[key] !== null && filter[key] !== undefined) {
+        params = params.set(key, filter[key]); // Thêm từng cặp key-value vào HttpParams
+      }
+    });
+    return this.http.get(this.url, { params });
+  }
+
+  postCreateUser(objUser: any): Observable<any> {
+    return this.http.post(this.url, objUser);
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`)
+  }
+
+  getUserById(id: number): Observable<any> {
+    return this.http.get((`${this.url}/${id}`))
   }
 }
