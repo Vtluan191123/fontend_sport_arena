@@ -11,7 +11,9 @@ export const customInterceptor: HttpInterceptorFn = (req, next) => {
   const excludedUrls = [
     'http://localhost:8080/api/v1/auth/login',
     'http://localhost:8080/api/v1/auth/refresh_token',
-    'http://localhost:8080/api/v1/football_field'
+    'http://localhost:8080/api/v1/football_field',
+    'http://localhost:8080/api/v1/auth/register',
+
   ];
 
 
@@ -47,7 +49,6 @@ export const customInterceptor: HttpInterceptorFn = (req, next) => {
           })
         )
       }
-      debugger
       return throwError(error);
     })
   )

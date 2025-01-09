@@ -26,4 +26,8 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.get(`${this.url}/logout`, { withCredentials: true })
   }
+
+  register(userResgiter: any): Observable<any> {
+    return this.http.post(`${this.url}/register`, userResgiter, { withCredentials: true })
+  }
 }
