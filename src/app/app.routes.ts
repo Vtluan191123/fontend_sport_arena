@@ -18,6 +18,7 @@ import { ManageVouchersComponent } from './component/admin/manage-vouchers/manag
 import { ManageOrdersComponent } from './component/admin/manage-orders/manage-orders.component';
 import { CreateUserComponent } from './component/admin/create-user/create-user.component';
 import { ViewUserComponent } from './component/admin/view-user/view-user.component';
+import { ManageTimeFramesComponent } from './component/admin/manage-time-frames/manage-time-frames.component';
 
 export const routes: Routes = [
 
@@ -52,6 +53,7 @@ export const routes: Routes = [
             { path: 'orders', component: ManageOrdersComponent },
             { path: 'create-user', component: CreateUserComponent },
             { path: 'view-user', component: ViewUserComponent },
+            { path: 'time-frames', component: ManageTimeFramesComponent },
             // Các route khác của admin
         ],
     },

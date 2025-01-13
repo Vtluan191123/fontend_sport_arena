@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from '../../../service/user.service';
 import { AuthService } from '../../../service/auth.service';
 import { Router } from '@angular/router';
+import { HomeServiceService } from '../../../service/home-service.service';
 
 @Component({
   selector: 'app-manage-football-field',
@@ -16,7 +17,18 @@ export class ManageFootballFieldComponent implements OnInit {
   searchName: any
   listUsers: any
 
-  constructor(private userService: UserService, private authService: AuthService, private router: Router) { }
+  filter: any = {
+    "page": "1",
+    "size": "8",
+    "name": "",
+    "typeField": "",
+    "timeFrame": "",
+    "sort": "",
+    "capacity": "",
+    "price": ""
+  }
+
+  constructor(private homeService: HomeServiceService, private userService: UserService, private authService: AuthService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -31,6 +43,10 @@ export class ManageFootballFieldComponent implements OnInit {
     }, (error) => {
       this.router.navigate(['/login'])
     })
+  }
+
+  getAllFootField() {
+    this.homeService.getAllFootField
   }
 
 

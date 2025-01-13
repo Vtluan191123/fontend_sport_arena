@@ -15,8 +15,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-center align-items-center">
                         <input class="form-control" style="width: 300px; margin-right: 10px;" type="text" name="search"
-                            [(ngModel)]="searchName" placeholder="Search name.......">
-                        <button class="btn btn-primary">Search</button>
+                            [(ngModel)]="filter.name" placeholder="Search name.......">
+                        <button (click)="handlerSearch()" class="btn btn-primary">Search</button>
                         <a routerLink="create-user" style="margin-left: 500px;" class="btn btn-success">Create User</a>
                     </div>
                     <div class="card-content">
@@ -27,50 +27,57 @@
                                 <thead class="thead-dark text-center">
                                     <tr>
                                         <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone_Number</th>
-                                        <th>Role</th>
+                                        <th>Name Event</th>
+                                        <th>Begin</th>
+                                        <th>End</th>
+                                        <th>Percent</th>
                                         <th>ACTION</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
+                                    @if (data.length>0) {
+                                    @for (item of data; track $index) {
                                     <tr>
-                                        <td class="text-bold-500">Michael Right</td>
-                                        <td>$15/hr</td>
-                                        <td class="text-bold-500">UI/UX</td>
-                                        <td>Remote</td>
-                                        <td>Austin,Taxes</td>
-                                        <td>Austin,Taxes</td>
+                                        <td class="text-bold-500">{{item.id}}</td>
+                                        <td class="text-bold-500">{{item.nameEvent}}</td>
+                                        <td class="text-bold-500">{{item.begin}}</td>
+                                        <td>{{item.end}}</td>
+                                        <td>{{item.percent}}%</td>
                                         <td class="d-flex justify-content-around">
                                             <button class="mx-auto btn btn-light-primary">View</button>
                                             <button class="mx-auto btn btn-warning ">Update</button>
                                             <button class="mx-auto btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
+                                    }
 
+                                    }@else {
+                                    <h3 style="width: 328%;" class="mt-3 ">User not found</h3>
+                                    }
                                 </tbody>
                             </table>
 
                         </div>
 
                     </div>
+                    @if(data.length>0){
                     <nav aria-label="..." class="mt-3 d-flex flex-row-reverse mx-auto">
                         <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            @if (filter.page != 1) { <li class="page-item ">
+                                <a (click)="handlerPre()" class="page-link">Previous</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            }
+                            @for (item of totalPage; track $index) {
+                            <li (click)="isActive($index+1)"><a
+                                    [ngClass]="is_Active == $index+1 ? 'active page-link' : 'page-link'">{{$index+1}}</a>
                             </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
+                            }
+
+                            @if (filter.page < totalPage.length) { <li class="page-item">
+                                <a (click)="handlerNext()" class="page-link">Next</a>
+                                </li>}
                         </ul>
-                    </nav>
+                    </nav>}
                 </div>
             </div>
         </div>
