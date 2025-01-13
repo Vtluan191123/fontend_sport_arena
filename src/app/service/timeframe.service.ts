@@ -20,4 +20,9 @@ export class TimeframeService {
     });
     return this.http.get(this.url, { params });
   }
+
+
+  deleteTimeFrame(id: number) {
+    return this.http.delete(`${this.url}/${id}`)
+  }
 }

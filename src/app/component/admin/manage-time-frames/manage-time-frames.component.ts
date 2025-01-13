@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TimeframeService } from '../../../service/timeframe.service';
-import { AuthService } from '../../../service/auth.service';
-import { Router } from 'express';
-import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-manage-time-frames',
@@ -12,7 +11,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './manage-time-frames.component.html',
   styleUrl: './manage-time-frames.component.css'
 })
-export class ManageTimeFramesComponent {
+export class ManageTimeFramesComponent implements OnInit {
   data: any;
   totalPage: any;
   filter: any = {
@@ -23,9 +22,13 @@ export class ManageTimeFramesComponent {
 
   constructor(
     private timeFrameService: TimeframeService,
-    private authService: AuthService,
     private router: Router
   ) { }
+
+
+  ngOnInit(): void {
+    this.handleGetAllTimeFrame()
+  }
 
   handleGetAllTimeFrame() {
     this.timeFrameService.getAllTimeFrames(this.filter).subscribe(
@@ -39,15 +42,16 @@ export class ManageTimeFramesComponent {
     );
   }
 
-  // handleDeleteUser(id: number) {
-  //   let check = confirm("Are you sure delete item with id " + id)
-  //   if (check) {
-  //     this.userService.deleteUser(id).subscribe((res) => {
-  //       alert('delete success')
-  //       this.handleGetAllUsers()
-  //     })
-  //   }
-  // }
+  handleDeleteTimeFrame(id: number) {
+    let check = confirm("Are you sure delete item with id " + id)
+    if (check) {
+      this.timeFrameService.deleteTimeFrame(id).subscribe((res: any) => {
+        this.handleGetAllTimeFrame()
+
+      })
+    }
+  }
+
 
   // handleUserDetail(id: number) {
   //   this.router.navigate(['/admin/view-user'], {
@@ -74,6 +78,5 @@ export class ManageTimeFramesComponent {
     this.filter.page = index;
     this.handleGetAllTimeFrame();  // Gọi lại API khi thay đổi trang
   }
-
 
 }
